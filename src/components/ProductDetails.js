@@ -15,7 +15,7 @@ export function ProductDetails(props){
             <p>
                 By {props.seller && props.seller.full_name}
             </p>
-
+           
         </div>
     );
 }

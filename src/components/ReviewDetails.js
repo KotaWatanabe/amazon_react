@@ -12,6 +12,7 @@ export function ReviewDetails(props){
                 <small>{props.created_at}</small>
                 <small>{props.user && props.user.full_name}</small>
             </p>
+            <button onClick={() => props.onDeleteClick(props.id)}>Delete</button>
         </div>
     )
 }

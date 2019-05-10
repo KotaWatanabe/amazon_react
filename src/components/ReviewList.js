@@ -3,21 +3,18 @@ import { ReviewDetails } from './ReviewDetails'
 import data from '../productData'
 
 export function ReviewList(props) {
-    return (
-        <ul>
-            {data.reviews.map(review => {
-                return (
-                    <li>
-                        {<ReviewDetails
-                            body={review.body}
-                            rating={review.rating}
-                            created_at={review.created_at}
-                            reviewer={{ full_name: review.reviewer.full_name }}
-                        />}
-                        <br />
-                    </li>
-                )
-            })}
+    const { reviews }= props;
+    return(
+        <ul 
+        style={{
+            listStyle: "none",
+            paddingLeft: 0
+        }}>
+            {reviews.map(review =>(
+                <li key={review.id}>
+                <ReviewDetails onDeleteClick={props.onReviewDeleteClick} {...review} />
+            </li>
+              ))}
         </ul>
     )
 }
